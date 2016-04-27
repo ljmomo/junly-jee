@@ -255,5 +255,28 @@
 	</dependencies>
   <build>
     <finalName>junly-jee</finalName>
+    <plugins>
+	<plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-resources-plugin</artifactId>
+		<version>2.6</version>
+		<configuration>
+			<skip>true</skip>
+			<encoding>UTF-8</encoding>
+		</configuration>
+	</plugin>
+	<plugin>
+		<groupId>org.apache.tomcat.maven</groupId>
+		<artifactId>tomcat7-maven-plugin</artifactId>
+		<version>2.2</version>
+		<configuration>
+			<url>http://localhost:8080/manager/text</url>
+			<username>admin</username>
+			<password>admin</password>
+			<server>tomcat7</server>
+			<path>/junly-jee</path>
+		</configuration>
+	</plugin>
+    </plugins>
   </build>
 </project>
