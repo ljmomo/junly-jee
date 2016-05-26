@@ -16,7 +16,7 @@ public class UserController {
 	@RequestMapping("/helloWorld")
 	public String helloWorld(Model model) throws Exception
 	{
-		User user  = userService.getUserById(3);
+		User user  = userService.getUserById(1);
 		System.out.println(""+user.getUsername());
 		model.addAttribute("user", user);
 		return "helloworld";
