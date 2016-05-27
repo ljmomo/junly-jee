@@ -14,10 +14,9 @@
 		<package name="com.junly.bean"/>
 		
 	</typeAliases>
-	
-  <!-- <mappers>
-    <mapper resource="sqlmap/User.xml"/>
-   <mapper resource="sqlmap/UserMapper.xml" />
+	<!-- 
+  <mappers>
+    <mapper resource="mybatis/mappers/UserMapper.xml"/>
   </mappers> -->
- 
+  
 </configuration>
