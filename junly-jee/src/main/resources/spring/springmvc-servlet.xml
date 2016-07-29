@@ -13,21 +13,46 @@
 		http://www.springframework.org/schema/tx 
 		http://www.springframework.org/schema/tx/spring-tx-4.2.xsd ">
 
-	<mvc:annotation-driven/>
-	
-	<mvc:resources location="/static/" mapping="/static/**"/>
-	
-	<context:component-scan base-package="com.junly.controller" />
-   <!--  <context:component-scan base-package="com.it.junly.service" /> -->
+	<mvc:annotation-driven />
 
-	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
-		<property name="viewClass"><value>org.springframework.web.servlet.view.JstlView</value></property> 
-		<property name="prefix"><value>/WEB-INF/jsp/</value></property> 
-		<property name="suffix"><value>.jsp</value></property>
+	<mvc:resources location="/static/" mapping="/static/**" />
+
+	<context:component-scan base-package="com.junly.controller" />
+	<!-- <context:component-scan base-package="com.it.junly.service" /> -->
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.JstlView</value>
+		</property>
+		<property name="prefix">
+			<value>/WEB-INF/jsp/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
 	</bean>
-	
-	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
 		<property name="maxUploadSize" value="10485760"></property>
-	</bean> 
-	
+	</bean>
+
+	<bean id="mappingJacksonHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="supportedMediaTypes">
+			<list>
+				<value>text/html;charset=UTF-8</value>
+			</list>
+		</property>
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+		<property name="messageConverters">
+			<list>
+				<ref bean="mappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+
 </beans>

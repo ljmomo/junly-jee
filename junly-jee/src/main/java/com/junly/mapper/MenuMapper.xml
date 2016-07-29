@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.junly.mapper.MenuMapper">
+	<!-- 添加用戶 -->
+	<insert id="save" parameterType="com.junly.bean.Menu" useGeneratedKeys="true" keyProperty="id" >
+	   insert into menu(name,level,leftId,rightId)
+	    values(#{name},#{level},#{leftId},#{rightId});
+	</insert>
+	
+    <select id="findOne" parameterType="java.lang.Long" resultType="com.junly.bean.Menu">
+		select * from menu where id = #{id}
+	</select>
+	
+    <update id="updateLeft" parameterType="java.lang.Long">
+	   update menu set leftId=leftId+2
+	   where leftId>=#{right}
+	</update>
+    <update id="updateRight" parameterType="java.lang.Long">
+	   update menu set rightId=rightId+2
+	   where rightId>=#{right}
+	</update>
+	
+</mapper>
