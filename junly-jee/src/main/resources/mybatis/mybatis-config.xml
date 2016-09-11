@@ -9,15 +9,14 @@
   	<!-- 全局setting配置，根据需要添加 -->
 	<!-- 配置别名 -->
 	<typeAliases>
-		<!-- 批量扫描别名 -->
-		<typeAlias type="com.junly.util.PageData" alias="pd"/>
+		<!-- 批量扫描别名
+		<typeAlias type="com.junly.util.PageData" alias="pd"/> -->
 		<package name="com.junly.bean"/>
 		
 	</typeAliases>
-	
-  <!-- <mappers>
-    <mapper resource="sqlmap/User.xml"/>
-   <mapper resource="sqlmap/UserMapper.xml" />
+	<!-- 
+  <mappers>
+    <mapper resource="mybatis/mappers/UserMapper.xml"/>
   </mappers> -->
- 
+  
 </configuration>
