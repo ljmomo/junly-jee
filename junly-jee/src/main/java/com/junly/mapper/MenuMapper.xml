@@ -15,11 +15,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
     <update id="updateLeft" parameterType="java.lang.Long">
 	   update menu set leftId=leftId+2
-	   where leftId>=#{right}
+	   where leftId>#{right}
 	</update>
     <update id="updateRight" parameterType="java.lang.Long">
 	   update menu set rightId=rightId+2
-	   where rightId>=#{right}
+	   where rightId>#{right}
 	</update>
 	
 </mapper>
