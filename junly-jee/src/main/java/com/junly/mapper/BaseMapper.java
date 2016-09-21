@@ -3,9 +3,9 @@ package com.junly.mapper;
 import java.util.List;
 
 
-public interface BaseMapper<E> {
+public interface BaseMapper<K,V> {
 
-	public void save(E entity) throws Exception;
+	public void save(V vo) throws Exception;
 	
 	/**
 	 * 修改对象
@@ -14,7 +14,7 @@ public interface BaseMapper<E> {
 	 * @return
 	 * @throws Exception
 	 */
-	public  void update(E entity) throws Exception;
+	public  void update(V vo) throws Exception;
 	
 	/**
 	 * 删除对象 
@@ -23,7 +23,7 @@ public interface BaseMapper<E> {
 	 * @return
 	 * @throws Exception
 	 */
-	public void delete (E entity) throws Exception;
+	public void delete (K ID) throws Exception;
 
 	/**
 	 * 查找对象
@@ -32,7 +32,7 @@ public interface BaseMapper<E> {
 	 * @return
 	 * @throws Exception
 	 */
-	public E findOne(Long id) throws Exception;
+	public V findOne(K ID) throws Exception;
 
 	/**
 	 * 查找对象
@@ -41,6 +41,6 @@ public interface BaseMapper<E> {
 	 * @return
 	 * @throws Exception
 	 */
-	public List<E> findForList(E entity) throws Exception;
+	public List<V> findForList(V vo) throws Exception;
 	
 }
